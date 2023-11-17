@@ -1,3 +1,6 @@
+
+
+
 package step5_01.exception;
 
 /*
@@ -17,14 +20,10 @@ package step5_01.exception;
 public class ExceptionEx01 {
  
 	public static void main(String[] args) {
-		
-		try {// 외부와 연결을할때 예외처리 필수!! 
-			Thread.sleep(1000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
+		/*
+		 * try {// 외부와 연결을할때 예외처리 필수!! Thread.sleep(1000); } catch (InterruptedException
+		 * e1) { // TODO Auto-generated catch block e1.printStackTrace(); }
+		 */
 		try {
 			
 			int[] testArr = new int[5];
