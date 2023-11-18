@@ -17,6 +17,14 @@ public class FileEx04_문제 {
 		String fileName = "fileTest02.txt";
 		
 		String data = "";
+		
+		for (int i = 0; i < names.length; i++) {
+			data = data + names[i]+ "/";
+			data = data + pws[i]+ "/"; 
+			data = data + moneys[i];
+			
+		}
+		System.out.println(data);
 
 
 	}
