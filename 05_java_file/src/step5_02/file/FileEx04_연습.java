@@ -5,7 +5,7 @@ import java.io.IOException;
 
 //파일 저장하기 예제
 
-public class FileEx04_풀이 {
+public class FileEx04_연습 {
 	
 
       public static void main(String[] args) {
