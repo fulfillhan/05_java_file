@@ -56,7 +56,11 @@ public class FileEx06_정답예시 {
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				try {br.close();} catch (IOException e) {e.printStackTrace();}
+				try {
+					br.close();
+					}
+				catch (IOException e) 
+				{e.printStackTrace();}
 				try {fr.close();} catch (IOException e) {e.printStackTrace();}
 			}
 			
