@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.DayOfWeek;
 import java.util.Scanner;
 //2023-11-21
+//2023-11-24 커밋 확인 필요
 // 파일 컨트롤러
 public class FileEx07_연습 {
 	
@@ -124,13 +125,10 @@ public class FileEx07_연습 {
 						fReader =  new FileReader(fileName);
 						bReader = new BufferedReader(fReader);
 						
-						while (true) {
-							String line = bReader.readLine();// txt파일의한줄 내용들을 가져오기
-						if (line == null) {
-							break;
-						}
-						data += line+ "\n";
-						}
+						/*
+						 * while (true) { //String line = bReader.readLine();// txt파일의한줄 내용들을 가져오기 if
+						 * (line == null) { break; } data += line+ "\n"; }
+						 */
 						
 					} catch (FileNotFoundException e) {
 						// TODO Auto-generated catch block
