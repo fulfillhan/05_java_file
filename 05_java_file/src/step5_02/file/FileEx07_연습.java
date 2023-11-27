@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.time.DayOfWeek;
 import java.util.Scanner;
 //2023-11-21
-//2023-11-24 커밋 확인 필요
+//2023-11-24 
 // 파일 컨트롤러
 public class FileEx07_연습 {
 	
