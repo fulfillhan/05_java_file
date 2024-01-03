@@ -152,6 +152,16 @@ public class FileEx08_연습 {
 			
 			else if (sel == 5) {
 				//입금하기-> 여기서부터 진행
+				if(identifier != -1) {
+					System.out.print("입금 금액 입력하세요 : ");
+					int myMoney = scan.nextInt();
+					moneys[identifier] += myMoney;
+					System.out.println();
+					System.out.println("[메시지] 입금 완료!");
+				}else {
+					System.out.println("[메시지] 로그인 후 이용해주세요!");
+				}
+				
 			}
 			else if (sel == 6) {}
 			else if (sel == 7) {}
