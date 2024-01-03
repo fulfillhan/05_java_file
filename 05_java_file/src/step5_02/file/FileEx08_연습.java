@@ -1,5 +1,5 @@
 package step5_02.file;
-//2023-12-31
+//2024-01-03
 
 import java.util.Scanner;
 
@@ -150,7 +150,9 @@ public class FileEx08_연습 {
 				else                  System.out.println("[메시지] 로그아웃 되었습니다!");
 			}
 			
-			else if (sel == 5) {}
+			else if (sel == 5) {
+				//입금하기-> 여기서부터 진행
+			}
 			else if (sel == 6) {}
 			else if (sel == 7) {}
 			else if (sel == 8) {}
