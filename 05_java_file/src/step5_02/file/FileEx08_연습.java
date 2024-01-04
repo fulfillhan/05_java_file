@@ -1,6 +1,9 @@
 package step5_02.file;
 //2024-01-03
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 //# 파일 컨트롤러[2단계] : ATM
@@ -17,7 +20,7 @@ public class FileEx08_연습 {
 		
 		String[] accs = new String[atmSize];// 계좌번호배열 5개
 		String[]  pws = new String[atmSize];// 패스워드 배열 5개
-		int[]  moneys = new int[atmSize];//돈의 배열 5개
+		int[] moneys = new int[atmSize];//돈의 배열 5개
 		
 		String fileName = "atm.txt";//파일 이름
 		
@@ -151,9 +154,9 @@ public class FileEx08_연습 {
 			}
 			
 			else if (sel == 5) {
-				//입금하기-> 여기서부터 진행
+				//입금하기
 				if(identifier != -1) {
-					System.out.print("입금 금액 입력하세요 : ");
+					System.out.print("[입금] 금액 입력 : ");
 					int myMoney = scan.nextInt();
 					moneys[identifier] += myMoney;
 					System.out.println();
@@ -163,12 +166,108 @@ public class FileEx08_연습 {
 				}
 				
 			}
-			else if (sel == 6) {}
-			else if (sel == 7) {}
-			else if (sel == 8) {}
-			else if (sel == 9) {}
-			else if (sel == 10) {}
-			else if (sel == 0) {
+			else if (sel == 6) {
+				//출금하기
+				if(identifier != -1){
+					System.out.print("[출금] 금액 입력 : ");
+					int myMoney = scan.nextInt();
+					//조건 :  통장의 금액이 내가 출금할 금액보다 크게 있어야한다.
+					if(myMoney<= moneys[identifier]){
+						moneys[identifier] -= myMoney;
+						System.out.println("[메시지] 출금 완료!");
+					}
+					else{
+						System.out.println("[메시지] 잔액이 부족합니다!");
+					}
+				}
+				else System.out.println("[메시지] 로그인 후 이용해주세요!");
+			}
+			else if (sel == 7) {
+				//이체하기
+				//이체계좌번호 먼저 입력하기
+				if(identifier != -1){
+					System.out.print("[이체] 계좌 번호 입력 : ");
+					String yourAcc = scan.next();
+					
+					//이체할 계좌 번호가 해당 배열에 잇는지 중복검사
+					int check = -1;
+					for (int i = 0; i < accs.length; i++) {
+						if(yourAcc.equals(accs[i])){
+							check = i;
+						}
+					}
+					if(check != -1){
+						//계좌이체 가능
+						System.out.print("[이체] 금액 입력 : ");
+						int transMoney = scan.nextInt();
+						
+						if(transMoney <= moneys[identifier]){
+							moneys[identifier] -= transMoney;
+							moneys[check] += transMoney;
+							System.out.println("[메시지] 이체 완료!");
+						}
+						else {
+							System.out.println("[메시지] 이체 잔액이 부족합니다!");
+						}
+					}
+					else {
+						System.out.println("[메시지] 계좌 번호가 중복됩니다.");
+					}
+				}
+				else{
+					System.out.println("[메시지] 로그인 후 이용해주세요!");
+				}
+			}
+			else if (sel == 8) {
+				// 잔액조회하기
+				//로그인을 했는지 유무 확인 true/false:로그인 후이용
+				//accs 배열 순회하여 계좌 잔액 조회하기
+				if(identifier != -1){
+					System.out.println(accs[identifier]+"님의 계좌잔액은 "+moneys[identifier]+"원 입니다.");
+				}
+				else{
+					System.out.println("[메시지] 로그인 후 이용해주세요!");
+				}
+
+			}
+			else if (sel == 9) {
+				//저장
+				//배열에 있던 데이터를 문자화 시켜 파일에 저장
+				//배열의 크기가 0이면 저장할 데이터없음-> 0초과해야 가능
+				if(accsCnt == 0){
+					System.out.println("[메시지] 저장할 데이터가 없습니다!");
+					continue;
+				}
+				//파일에 넣을 데이터를 data라는 변수에 저장한다.
+				String data = "";//초기화
+				for (int i = 0; i < accsCnt; i++) {
+					data += accs[i];
+					data +="/";
+					data += pws[i];
+					data += "/";
+					data += moneys[i];
+					data += "\n";
+				}
+				FileWriter fw = null;
+				try {
+					fw = new FileWriter(fileName);
+					fw.write(data);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					if(fw != null){
+						try {fw.close();} catch (IOException e) {throw new RuntimeException(e);
+						}
+					}
+				}
+			}
+			else if (sel == 10) {
+				//로드하기-> 여기서부터 하기
+				File file = new File(fileName);
+				
+						
+			}else if (sel == 0) {
+				System.out.println("== 시스템이 종료되었습니다.!");
 				break;
 			}
 			
