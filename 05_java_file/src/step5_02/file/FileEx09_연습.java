@@ -32,7 +32,8 @@ public class FileEx09_연습 {
 		
 		while (true) {
 			
-			//상태값 로직-> 여기서부터
+			//상태값 로직
+			System.out.println("----------------");
 			
 			
 			System.out.println("[MEGA SHOP]");
