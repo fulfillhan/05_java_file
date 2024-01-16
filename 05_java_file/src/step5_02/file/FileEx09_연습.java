@@ -34,7 +34,24 @@ public class FileEx09_연습 {
 			
 			//상태값 로직
 			System.out.println("----------------");
+			for (int i = 0; i < ids.length; i++) {
+				System.out.println(ids[i]+ " : "+ pws[i]+ " : "+"(");
+				for (int j = 0; j < cart.length; j++) {
+					if(cart[j][0] == i ) {
+						if(cart[j][1] == 1)       System.out.println("사과");
+						else if (cart[j][1] == 2) System.out.println("바나나");
+						else if (cart[i][1] == 3) System.out.println("딸기");
+						System.out.println("/");
+					}
+				}
+				
+				System.out.println(")");
+			}
 			
+			System.out.println("----------------");
+			System.out.print("상태 : ");
+			if(log == -1)  System.out.println("로그아웃");
+			else           System.out.println(ids[log] +"님 로그인 중");
 			
 			System.out.println("[MEGA SHOP]");
 			System.out.println("[1]로그인");
