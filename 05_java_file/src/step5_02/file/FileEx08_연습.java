@@ -94,6 +94,9 @@ public class FileEx08_연습 {
 					System.out.println("[메시지] 로그인 후 이용가능합니다!");
 				}
 				else {// 탈퇴하기
+					for (int i = 0; i < moneys.length; i++) {
+						
+					}
 					
 				}
 			}
